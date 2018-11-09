@@ -13,6 +13,7 @@ public class RandomNumberController {
 
     private RandomService randomService;
 
+    @Autowired
     public RandomNumberController(RandomService randomService) {
         this.randomService = randomService;
     }
