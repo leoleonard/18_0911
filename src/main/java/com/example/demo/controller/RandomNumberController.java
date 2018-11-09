@@ -13,6 +13,10 @@ public class RandomNumberController {
 
     private RandomService randomService;
 
+    public RandomNumberController(RandomService randomService) {
+        this.randomService = randomService;
+    }
+
     @GetMapping("/small")
     @ResponseBody
     public String smallRandom() {
