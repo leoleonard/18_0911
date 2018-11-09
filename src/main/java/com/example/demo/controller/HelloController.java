@@ -56,19 +56,19 @@ public class HelloController {
             System.out.println(name + ": " + header);
         }
     }
-   // @ResponseBody
+
+    // @ResponseBody
     @GetMapping("/login")
     public String getInfo(HttpServletRequest request) {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        if("abc".equals(name) && "xyz".equals(password))
+        if ("abc".equals(name) && "xyz".equals(password))
             return "redirect:success.html";
         else
             return "redirect:error.html";
     }
 
 }
-
 
 //
 //            Enumeration<String> headerNames = request.getHeaderNames();
