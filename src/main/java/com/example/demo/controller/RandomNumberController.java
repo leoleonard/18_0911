@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.service.RandomService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,17 +11,19 @@ import java.util.Random;
 @Controller
 public class RandomNumberController {
 
+    private RandomService randomService;
+
     @GetMapping("/small")
     @ResponseBody
     public String smallRandom() {
-        int smallInt = new Random().nextInt(100);
+        int smallInt = randomService.getSmallInt();
         return "Losowa liczba " + smallInt;
     }
 
     @GetMapping("/big")
     @ResponseBody
     public String bigRandom() {
-        int bitInt = new Random().nextInt(100000);
+        int bitInt = randomService.getBigInt();
         return "Duża losowa liczba " + bitInt;
     }
 }
