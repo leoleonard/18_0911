@@ -15,14 +15,16 @@ public class HelloController {
     @GetMapping("/hello")
     @ResponseBody
     //nie trzeba okreslac metody tylko sam adres
-    public void hello() {
+    public String hello() {
         System.out.println("Wykonanie metody hello");
+        return "Wykonanie metody hello";
     }
 
     @GetMapping("/example")
     @ResponseBody
-    public void example() {
+    public String example() {
         System.out.println("Metoda example");
+        return "Metoda example";
     }
 
 
