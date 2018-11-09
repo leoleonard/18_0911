@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.service.RandomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,5 +56,22 @@ public class HelloController {
             System.out.println(name + ": " + header);
         }
     }
+   // @ResponseBody
+    @GetMapping("/login")
+    public String getInfo(HttpServletRequest request) {
+        String name = request.getParameter("name");
+        String password = request.getParameter("password");
+        if("abc".equals(name) && "xyz".equals(password))
+            return "redirect:success.html";
+        else
+            return "redirect:error.html";
+    }
 
 }
+
+
+//
+//            Enumeration<String> headerNames = request.getHeaderNames();
+//            String ip = request.getLocalAddr();
+//            return "Cześć tu Damian. Wszystko działa" + ip;
+
