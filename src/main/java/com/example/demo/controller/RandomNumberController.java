@@ -31,4 +31,5 @@ public class RandomNumberController {
         int bitInt = randomService.getBigInt();
         return "Duża losowa liczba " + bitInt;
     }
+
 }

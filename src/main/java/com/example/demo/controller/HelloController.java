@@ -3,13 +3,14 @@ package com.example.demo.controller;
 import com.example.demo.service.RandomService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Enumeration;
 
 
 @Controller
-@RequestMapping("/aplikacja")
+//@RequestMapping("/aplikacja")
 public class HelloController {
 
     private RandomService randomService;
@@ -38,5 +39,21 @@ public class HelloController {
         return "Metoda example";
     }
 
+    @GetMapping("/form")
+    public String showForm() {
+        //obliczenia wyswietlenia formularza
+        return "formularz.html";
+    }
+
+    @GetMapping("/info")
+    @ResponseBody
+    public void showInfo(HttpServletRequest request) {
+        Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            String name = headerNames.nextElement();
+            String header = request.getHeader(name);
+            System.out.println(name + ": " + header);
+        }
+    }
 
 }
